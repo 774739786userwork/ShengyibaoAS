@@ -11,7 +11,6 @@ public class FocusWeChat extends Activity {
 	private ImageView wechat_back;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_wechat);
 		
@@ -20,7 +19,6 @@ public class FocusWeChat extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				finish();
 			}
 		});

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" 
+    android:background="@drawable/list_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants">
+
+    <ImageView android:id="@+id/purchase_detail_Product_Image"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="8"/>
+
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:padding="5dp" 
+        android:layout_weight="5">
+        <!-- 右侧第一行 -->
+		<RelativeLayout
+            android:id="@+id/deliveryNote_detail_GoodsList_TopLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="37"
+            >
+	        <TextView android:id="@+id/purchase_detail_GoodsList_Product_Name"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" 
+	            android:textColor="#000000"
+	            android:text="多邦外墙腻子王"
+	            android:textSize="17sp" />
+		</RelativeLayout>
+		<!-- 右侧第二行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:gravity="left"
+            android:orientation="horizontal">
+	        <TextView android:id="@+id/purchase_detail_GoodsList_Sale_Summary"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" 
+	            android:textColor="#666666"
+	            android:text="售价"
+	            android:textSize="15sp" />
+	        <!-- <TextView android:id="@+id/deliveryNote_detail_Product_Price" 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" 
+	            android:textColor="#ff0000"
+	            android:text="¥14.00"
+	            android:textSize="15sp" /> -->
+
+	        <TextView android:id="@+id/purchase_detail_Product_SalesVolume"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" 
+	            android:textColor="#ff0000"
+	            android:text="x200"
+	            android:textSize="15sp" />
+	        <!-- <TextView android:id="@+id/deliveryNote_detail_Product_SubtotalAmount" 
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content" 
+	            android:gravity="right"
+	            android:textColor="#ff0000"
+	            android:text="¥2800.00"
+	            android:textSize="15sp" /> -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="40"
+				android:gravity="right"
+				android:orientation="horizontal">
+	       <TextView
+			   android:id="@+id/purchase_totalforegift"
+			   android:layout_width="wrap_content"
+			   android:layout_height="wrap_content"
+			   android:gravity="right"
+			   android:textColor="#666666"
+			   android:textSize="15sp"
+			   android:text="押金："/>
+			<TextView
+				android:id="@+id/purchase_totalforegift_txt"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:textSize="15sp"
+				android:textColor="#ff0000"
+				android:text="100.0元"/>
+			</LinearLayout>
+	    </LinearLayout>
+	    <!-- 右侧第二行 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:gravity="left"
+            android:orientation="horizontal">
+	        <TextView android:id="@+id/purchase_detail_Product_GiftsVolume"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_gravity="left"
+	            android:textColor="#666666"
+	            android:text="赠送3包"
+	            android:textSize="15sp" />
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="40"
+	            android:gravity="right"
+	            android:orientation="horizontal">
+		        <TextView android:id="@+id/purchase_detail_Product_SubtotalVolume_Summary"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" 
+		            android:gravity="right"
+		            android:textColor="#666666"
+		            android:text="总计金额："
+		            android:textSize="15sp" />
+		        
+		        <TextView android:id="@+id/purchase_detail_Product_SubtotalAmount"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" 
+		            android:gravity="right"
+		            android:textColor="#ff0000"
+		            android:text="¥2800.00"
+		            android:textSize="15sp" />
+		     </LinearLayout>
+	    </LinearLayout>
+	</LinearLayout>
+</LinearLayout>

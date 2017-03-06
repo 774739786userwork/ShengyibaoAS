@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:orientation="vertical" >
+    <include android:id="@+id/DeliveryNoteTitle" layout="@layout/activity_deliverynote_title" android:focusable="true"/>
+
+    <RelativeLayout
+        android:id="@+id/ProductListLayout"
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@+id/DeliveryNoteTitle"
+	    android:layout_marginBottom="60dp">
+       <ListView  
+		    android:id="@+id/ProductListView"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:cacheColorHint="#00000000"
+	    	android:listSelector="#00000000"
+	        android:divider="#E0E0E0"
+	    	android:dividerHeight="1px"/>
+	</RelativeLayout>
+	<!-- 底部 -->
+	<RelativeLayout
+	    android:id="@+id/detail_buy_board"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:background="@null">
+		<RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="58dp"
+	        android:layout_alignParentBottom="true"
+	        android:background="#000000"
+	        android:gravity="center_vertical"
+	        android:alpha="0.6"
+	         >
+	         <TextView
+	            android:id="@+id/ShopCart_Amount"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="70dp"
+	            android:textColor="#ff0000"
+	            android:text="¥0元"
+	            android:textSize="24.0sp"/>
+	    </RelativeLayout>
+	    <RelativeLayout
+	        android:id="@+id/shopCartIcon"
+	        android:layout_width="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_height="58dp"
+	        android:layout_alignParentBottom="true">
+	    	<ImageView 
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:src="@drawable/icon_cart"
+	            android:layout_marginLeft="20dp"
+	            android:layout_marginTop="10dp"
+	            />
+	    </RelativeLayout>
+		<Button
+            android:id="@+id/ShopCart_toSettlementBtn"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/dialog_positive_btn_bg"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="去结算"
+            android:textColor="#ffffff"
+            android:visibility="gone"
+            android:textSize="18sp" />
+	</RelativeLayout>
+</RelativeLayout>

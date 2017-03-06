@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#ffffff" >
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<RelativeLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1">
+			<ImageView
+				android:id="@+id/mainCustomerBillingItemImage"
+				android:layout_width="130dp"
+				android:layout_height="85dp"
+				android:scaleType="fitXY"
+				android:adjustViewBounds="true"
+				android:layout_marginTop="5dp"
+				android:layout_marginLeft="10dp"
+				android:paddingRight="5dp"
+				android:paddingBottom="5dp" />
+		</RelativeLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="5"
+			android:orientation="vertical">
+			<TextView
+				android:id="@+id/mainCustomerBillingNameTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:ellipsize="end"
+				android:paddingLeft="5dp"
+				android:paddingTop="4dp"
+				android:textColor="#000000"
+				android:textStyle="bold"
+				android:textSize="18sp"
+				android:text="" />
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingLeft="5dp"
+				android:paddingTop="0dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/mainCustomerContactName_textview"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="#919191"
+					android:text="" />
+
+				<TextView android:id="@+id/mainCustomerBillingItemPhone"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="#919191"
+					android:layout_marginLeft="3dp"
+					android:text="" />
+			</LinearLayout>
+
+			<TextView
+				android:id="@+id/mainCustomerBillingTimeTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingLeft="5dp"
+				android:paddingTop="0dp"
+				android:textColor="#919191"
+				android:text="" />
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+				<TextView
+					android:id="@+id/CustomerBillingCountTextView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="5dp"
+					android:paddingTop="0dp"
+					android:textColor="#919191"
+					android:text="sss" />
+
+				<!--<View
+					android:layout_width="1dp"
+					android:layout_height="match_parent"
+					android:layout_margin="3dp"
+					android:background="@color/gray" />
+
+				<TextView
+					android:id="@+id/customer_purchase_totalSumTv"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="5dp"
+					android:paddingTop="0dp"
+					android:textColor="#FF0000"
+					android:text="sssss" />-->
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+	<TextView android:id="@+id/mainCustomerBillingItemAddress"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingTop="3dp"
+		android:paddingLeft="10dp"
+		android:paddingBottom="3dp"
+		android:textColor="#919191"
+		android:text="" />
+</LinearLayout>

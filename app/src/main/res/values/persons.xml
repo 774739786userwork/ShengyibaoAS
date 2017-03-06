@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="person">
+        <item>谢俊杰</item>
+        <item>李浩斌</item>
+        <item>邹科</item>
+        <item>刘常</item>
+        <item>罗连贵</item>
+        <item>赵世文</item>
+        <item>薛云兵</item>
+        <item>柳建雄</item>
+        <item>李祖发</item>
+        <item>李华</item>
+        <item>李强</item>
+        <item>李力强</item>
+        <item>彭晋文</item>
+        <item>杜光署</item>
+        <item>刘国清</item>
+        <item>吴小发</item>
+        <item>吴双</item>
+        <item>杨建</item>
+        <item>黄爱国</item>
+        <item>罗满生</item>
+        <item>王湘博</item>
+        <item>邓旺</item>
+        <item>武文斌</item>
+        <item>刘迪刚</item>
+        <item>刘军</item>
+        <item>何兵</item>
+        <item>单启瑞</item>
+        <item>张勇</item>
+        <item>孙先来</item>
+        <item>林江明</item>
+    </string-array>
+</resources>

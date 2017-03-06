@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/activity_bluetooth_printer_title" android:focusable="true"/>
+    <LinearLayout android:id="@+id/first_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/summary_font_color"
+            android:text="已配对设备" />
+        <ListView
+            android:id="@+id/paired_devices"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:cacheColorHint="#00000000"
+	    	android:listSelector="#00000000">
+        </ListView>
+        
+    </LinearLayout>
+	<LinearLayout
+	    android:layout_below="@id/first_layout"
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+          <TextView
+            android:id="@+id/tv_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/summary_font_color"
+            android:text="未配对设备" />
+	   
+	    
+        <ListView
+            android:id="@+id/new_devices"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:cacheColorHint="#00000000"
+	    	android:listSelector="#00000000" />
+       
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/topLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape_ll_no_coners_stroke"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/BluetoothPrinter_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:drawableRight="@drawable/setting_check_off"
+                android:text="打印一张"
+                android:textColor="#000000" >
+            </TextView>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/BluetoothPrinter_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:drawableRight="@drawable/setting_check_off"
+                android:text="打印两张" >
+            </TextView>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2" >
+
+            <TextView
+                android:id="@+id/BluetoothPrinter_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:gravity="center"
+                android:text="打印三张"
+                android:drawableRight="@drawable/setting_check_off"
+                android:textColor="#000000" >
+            </TextView>
+        </RelativeLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/BluetoothPrinter_printTickedBtn"
+        android:enabled="false"
+        android:focusableInTouchMode="false"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/BluetoothPrinter_three"
+        android:background="@drawable/dialog_positive_btn_bg"
+        android:text="打印小票"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- hearder 头部标签布局 -->
+    <RelativeLayout
+        android:id="@+id/group_hearder_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:background="#1C86EE">
+
+        <ImageView
+            android:id="@+id/group_backImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:background="@drawable/about_showleft_selector"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="组内排名"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/timetopLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:background="#1C86EE"
+        android:layout_below="@+id/group_hearder_layout"
+        android:orientation="horizontal" >
+
+        <TextView android:id="@+id/group_start_date"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="2017-02-28"
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:text="开始"
+            android:layout_weight="1"
+            android:layout_margin="3dp"/>
+
+        <View android:layout_width="15dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray"/>
+
+        <TextView android:id="@+id/group_end_date"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:text="2017-03-28"
+            android:textSize="16sp"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:layout_weight="1"
+            android:text="结束"
+            android:layout_margin="3dp"/>
+    </LinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/expandlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_below="@+id/timetopLinearLayout"
+        android:divider="@android:color/white"
+        android:dividerHeight="1dp" />
+
+</RelativeLayout>

@@ -1,0 +1,196 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+	android:id="@+id/settlement_view"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <include android:id="@+id/SettlementTitle" layout="@layout/activity_settlement_title"
+		android:layout_alignParentTop="true"/>
+    
+    <RelativeLayout
+        android:id="@+id/ShopCart_GoodsListLayout"
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@+id/SettlementTitle"
+	    android:layout_marginBottom="145dp">
+		<ListView  
+		    android:id="@+id/ShopCart_GoodsListView"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:divider="#E0E0E0"
+	    	android:dividerHeight="1px"/>
+	</RelativeLayout>
+	<!-- 底部 -->
+	<RelativeLayout
+        android:id="@+id/Sttlement_sure_board"
+        android:layout_width="wrap_content"
+        android:layout_height="125dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/index_bottom_bar" >
+
+		<LinearLayout
+			android:id="@+id/firstlinear"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft = "10dp"
+			android:layout_marginRight = "10dp"
+			android:orientation="horizontal">
+
+			<CheckBox
+				android:id="@+id/round_checkbox"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:drawableLeft="@drawable/checkbox_selector"
+				android:drawablePadding="10dp"
+				android:button="@null"
+				android:background="@null"
+				android:textColor="#666666"
+				android:text="四舍五入"
+				android:layout_weight="1"
+				></CheckBox>
+
+			<TextView
+				android:id="@+id/rounding_text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF0000"
+				android:layout_marginRight="50dp"
+				android:text=""/>
+
+			<CheckBox
+				android:id="@+id/delete_small_count_checkbox"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:drawableLeft="@drawable/checkbox_selector"
+				android:drawablePadding="10dp"
+				android:button="@null"
+				android:background="@null"
+				android:textColor="#666666"
+				android:text="抹零"
+				android:layout_weight="1"
+				></CheckBox>
+
+			<TextView
+				android:id="@+id/small_count_text"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="#FF0000"
+				android:layout_marginRight="50dp"
+				android:text=""/>
+		</LinearLayout>
+		
+		    <TextView 
+		        android:id="@+id/ShopCart_settlement_summary"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:text="共14件商品 总计¥30000.00"
+		    	android:padding="5dp"
+		    	android:textSize="15sp"
+		    	android:textColor="#666666"
+				android:layout_below="@+id/firstlinear"/>
+		    <TextView 
+		        android:id="@+id/ShopCart_settlement_foregift"
+		        android:layout_below="@+id/ShopCart_settlement_summary"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:text="押金 总计¥30.00"
+		    	android:layout_marginLeft="5dp"
+		    	android:textSize="15sp"
+		    	android:textColor="#666666"
+		        />
+	      
+		<LinearLayout 
+		    android:id="@+id/remark_LinearLayout"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_toRightOf="@+id/ShopCart_settlement_foregift"
+		    android:layout_below="@+id/ShopCart_settlement_amountsummary"
+		    android:orientation="horizontal">
+		    
+		    <TextView android:id="@+id/remark_textview"
+	             android:layout_width="wrap_content"
+	             android:layout_height="wrap_content"
+	             android:textColor="#000000"
+				android:visibility="gone"
+	             android:layout_marginLeft="5dp"
+	             android:textSize="16sp"
+	             android:text="备注:"/>
+	         <TextView
+	            android:id="@+id/RemarkText"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="#000000"
+	            android:text=""
+	            android:singleLine="true"
+	            android:ellipsize="marquee"
+	            android:marqueeRepeatLimit="marquee_forever"
+	            android:scrollHorizontally="true"
+	            android:clickable="true"
+	            android:focusable="true"
+				 android:visibility="gone"
+        		android:focusableInTouchMode="true"
+	            android:textSize="16sp"/>
+		</LinearLayout>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_margin="5dp"
+			android:layout_alignParentBottom="true"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentEnd="true">
+			<Button
+				android:id="@+id/ShopCart_Settlement_BuyBtn"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:background="@drawable/dialog_positive_btn_bg"
+				android:gravity="center"
+				android:text="收款¥30000.00"
+				android:textColor="#ffffff"
+				android:textSize="20sp"/>
+
+		</LinearLayout>
+        <RelativeLayout
+            android:id="@+id/ShopCart_settlement_amountsummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/ShopCart_settlement_summary"
+			android:layout_below="@+id/firstlinear"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/ShopCart_Settlement_Summary_AmountTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="本单实收："
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/ShopCart_Settlement_TotalAmount"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_gravity="right"
+				android:clickable="false"
+				android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/ShopCart_Settlement_Summary_AmountTxt"
+                android:background="@drawable/shape"
+                android:digits="1234567890."
+                android:inputType="numberDecimal"
+                android:numeric="decimal"
+                android:singleLine="true"
+                android:text="0"
+                android:textColor="#ff0000"
+                android:textSize="15sp"
+                android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+            </EditText>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
+    

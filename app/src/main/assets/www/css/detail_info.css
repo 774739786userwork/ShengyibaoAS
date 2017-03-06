@@ -1,0 +1,11 @@
+/* .ui-mobile, .ui-mobile .ui-page {
+    min-height: 300px;
+} */
+  body {
+    background:#ECEEF2 none repeat scroll 0 0;
+    color:#666;
+    font-family:Helvetica;
+    font-size:72%;
+    margin:0;
+    line-height:1.5em;
+  }

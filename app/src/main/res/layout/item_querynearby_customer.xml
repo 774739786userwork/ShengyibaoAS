@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/nearby_customer_image"
+                android:layout_width="130dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/customerNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingLeft="5dp"
+                android:paddingTop="4dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:text="打算的十大" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/contact_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#919191"
+                    android:singleLine="true"
+                    android:text="小贺" />
+
+                <TextView android:id="@+id/contact_mobile_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#919191"
+                    android:layout_marginLeft="3dp"
+                    android:text="13577476677" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/customer_last_deliverydate_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="4dp"
+                android:textColor="#919191"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="4dp">
+        <TextView android:id="@+id/customer_address_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingLeft="5dp"
+            android:paddingBottom="3dp"
+            android:layout_marginRight="5dp"
+            android:textColor="#919191"
+            android:text="11111" />
+
+        <TextView android:id="@+id/nearby_metres_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#919191"
+            android:paddingTop="3dp"
+            android:layout_weight="3"
+            android:layout_alignParentRight="true"
+            android:text="ssssss" />
+
+    </RelativeLayout>
+</LinearLayout>

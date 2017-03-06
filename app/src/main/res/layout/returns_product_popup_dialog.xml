@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_product_dialog"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+	<ImageView 
+	    android:id="@+id/product_dialog_image"
+	    android:src="@drawable/deliverynote_product_popup_bg"
+	    android:layout_width="90dp"
+	    android:layout_height="120dp"/>
+
+	<LinearLayout
+		android:id="@+id/left_linearlayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/product_dialog_image">
+
+		<TextView
+			android:id="@+id/ReturnsProductDialog_ForegiftTxt"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="押金："
+			android:layout_margin="2dp"
+			android:textColor="@color/dialog_text"
+			android:textSize="16sp" />
+		<EditText
+			android:id="@+id/ReturnsProductDialog_Price_Foregift"
+			android:background="@null"
+			android:layout_width="70dp"
+			android:selectAllOnFocus="true"
+			android:layout_height="25dp"
+			android:gravity="center"
+			android:editable="false"
+			android:text="0"
+			android:textSize="15sp" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/retailPrice_linearLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/left_linearlayout">
+
+		<TextView
+			android:id="@+id/retailtextview"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="零售价："
+			android:layout_margin="2dp"
+			android:textColor="@color/dialog_text"
+			android:textSize="16sp" />
+		<TextView
+			android:id="@+id/retail_price_textview"
+			android:layout_width="60dp"
+			android:selectAllOnFocus="true"
+			android:layout_height="25dp"
+			android:textColor="#000000"
+			android:gravity="center"
+			android:text="0"
+			android:textSize="15sp" />
+	</LinearLayout>
+
+    <LinearLayout android:id="@+id/product_dialog_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginTop="4dp"
+	    android:layout_marginLeft="100dp">
+	    <TextView
+	        android:id="@+id/ReturnsProductDialog_pname"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:text="商品名称"
+	        android:textColor="@color/white"
+	        android:textSize="18sp" />
+	    <LinearLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginLeft="30dp"
+	        android:baselineAligned="true"
+	        android:orientation="horizontal">
+			<TextView
+		        android:id="@+id/ReturnsProductDialog_PriceTxt"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="单价："
+		        android:layout_margin="2dp"
+		        android:textColor="@color/dialog_text"
+		        android:textSize="16sp" />
+			<EditText 
+			    android:id="@+id/ReturnsProductDialog_Price"
+			    android:background="@drawable/bg_edittext"  
+			    android:layout_width="70dp"
+		        android:layout_height="25dp"
+				android:selectAllOnFocus="true"
+		        android:gravity="center"
+		        android:inputType="numberDecimal"
+		        android:text="0"
+		        android:singleLine="true"
+		        android:digits="1234567890."
+		        android:numeric="decimal"
+		        android:textSize="15sp" />
+		</LinearLayout>
+		<LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginLeft="30dp"
+	        android:baselineAligned="true"
+	        android:orientation="horizontal">
+			++++<TextView
+		        android:id="@+id/ReturnsProductDialog_SalesVolumeTxt"
+		        android:layout_width="wrap_content"
+		        android:layout_height="25dp"
+		        android:text="数量："
+		        android:layout_margin="2dp"
+		        android:textColor="@color/dialog_text"
+		        android:textSize="16sp" />
+			<Button
+			    android:id="@+id/ReturnsProductDialog_SalesVolume_SubstractBtn"
+			    android:background="@drawable/goods_button_minus"
+				android:layout_width="25dp"
+				android:layout_height="25dp" 
+				android:layout_margin="2dp"
+				/>
+			<EditText
+		        android:id="@+id/ReturnsProductDialog_SalesVolume"
+		        android:background="@drawable/bg_edittext"  
+		        android:layout_width="48dp"
+		        android:layout_height="25dp"
+		        android:layout_marginTop="2dp"
+		        android:layout_marginLeft="8dp"
+		        android:layout_marginRight="8dp"
+				android:selectAllOnFocus="true"
+		        android:layout_marginBottom="2dp"
+		        android:gravity="center"
+		        android:text="0"
+		        android:inputType="number"
+		        android:singleLine="true"
+		        android:digits="1234567890"
+		        android:numeric="integer"
+		        android:textSize="15sp" />
+			<Button android:id="@+id/ReturnsProductDialog_SalesVolume_AddBtn"
+			    android:background="@drawable/goods_button_add"
+				android:layout_width="25dp"
+				android:layout_height="25dp" 
+				android:layout_margin="2dp"/>
+		</LinearLayout>
+		<LinearLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dp"
+	        android:layout_marginLeft="30dp"
+	        android:baselineAligned="true"
+
+	        android:orientation="horizontal">
+			<TextView
+		        android:id="@+id/ProductDialog_GiftsVolumeTxt"
+		        android:layout_width="wrap_content"
+		        android:layout_height="25dp"
+		        android:text="退赠："
+		        android:layout_margin="2dp"
+		        android:textColor="@color/dialog_text"
+		        android:textSize="16sp" />
+			<Button
+			    android:id="@+id/ReturnsProductDialog_GiftsVolume_SubstractBtn"
+			    android:background="@drawable/goods_button_minus"
+				android:layout_width="25dp"
+				android:layout_height="25dp" 
+				android:layout_margin="2dp"/>
+			<EditText
+		        android:id="@+id/ReturnsProductDialog_Price_GiftsVolume"
+		        android:layout_width="48dp"
+		        android:layout_height="25dp"
+		        android:layout_marginTop="2dp"
+		        android:layout_marginLeft="8dp"
+		        android:layout_marginRight="8dp"
+		        android:layout_marginBottom="2dp"
+		        android:gravity="center"
+				android:selectAllOnFocus="true"
+		        android:text="0"
+		        android:singleLine="true"
+		        android:digits="1234567890"
+		        android:numeric="integer"
+		        android:inputType="number"
+		        android:background="@drawable/bg_edittext"  
+		        android:textSize="15sp" />
+			<Button android:id="@+id/ReturnsProductDialog_GiftsVolume_AddBtn"
+			    android:background="@drawable/goods_button_add"
+				android:layout_width="25dp"
+				android:layout_height="25dp" 
+				android:layout_margin="2dp"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/retail_volumes_linearLayout"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:layout_marginLeft="30dp"
+			android:baselineAligned="true"
+			android:orientation="horizontal">
+			<TextView
+				android:id="@+id/productRetailVolumeTxt"
+				android:layout_width="wrap_content"
+				android:layout_height="25dp"
+				android:text="零售数量："
+				android:layout_margin="2dp"
+				android:textColor="@color/dialog_text"
+				android:textSize="16sp" />
+			<Button
+				android:id="@+id/productRetailVolume_SubstractBtn"
+				android:background="@drawable/goods_button_minus"
+				android:layout_width="25dp"
+				android:layout_height="25dp"
+				android:layout_margin="2dp"/>
+			<EditText
+				android:id="@+id/productRetail_Price_edittext"
+				android:layout_width="48dp"
+				android:layout_height="25dp"
+				android:layout_marginTop="2dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginRight="8dp"
+				android:layout_marginBottom="2dp"
+				android:gravity="center"
+				android:text="0"
+				android:selectAllOnFocus="true"
+				android:singleLine="true"
+				android:digits="1234567890"
+				android:numeric="integer"
+				android:inputType="number"
+				android:background="@drawable/bg_edittext"
+				android:textSize="15sp" />
+			<Button android:id="@+id/productRetailVolume_AddBtn"
+				android:background="@drawable/goods_button_add"
+				android:layout_width="25dp"
+				android:layout_height="25dp"
+				android:layout_margin="2dp"/>
+		</LinearLayout>
+	</LinearLayout>
+    <Button
+        android:id="@+id/ReturnsProductDialog_cancelbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="31.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/product_dialog_text"
+        android:layout_marginBottom="0.0dip"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginTop="20.0dip"
+        android:background="@drawable/dialog_negative_btn_bg"
+        android:gravity="center"
+        android:paddingLeft="25.0dip"
+        android:paddingRight="25.0dip"
+        android:text="取消"
+        android:textColor="@color/dialog_negative_text_color"
+        android:textSize="14.0sp" />
+
+    <Button
+        android:id="@+id/ReturnsProductDialog_okbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="31.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/product_dialog_text"
+        android:layout_marginBottom="0.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginTop="20.0dip"
+        android:background="@drawable/dialog_positive_btn_bg"
+        android:gravity="center"
+        android:paddingLeft="25.0dip"
+        android:paddingRight="25.0dip"
+        android:text="确认"
+        android:textColor="@color/positive_text_color"
+        android:textSize="14.0sp" />
+
+</RelativeLayout>

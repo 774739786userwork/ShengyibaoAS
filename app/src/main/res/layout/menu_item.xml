@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <LinearLayout xmlns:android= "http://schemas.android.com/apk/res/android"
+	 android:layout_width= "match_parent"
+	 android:layout_height= "match_parent"
+	 android:background= "#c4c4c4"
+	 android:orientation= "vertical"
+	 android:padding= "0.1dp" >
+ 
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" 
+	    android:gravity="center"
+	    android:background="@drawable/grid_view_item_selector_xml"
+	    >
+		<ImageView 
+		    android:src="@mipmap/ic_launcher"
+		    android:id="@+id/image"
+		    android:paddingTop="5dp"
+		    android:paddingBottom="2dp"
+		    android:paddingLeft="25dp"
+		    android:paddingRight="25dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    />
+		<TextView 
+		    android:id="@+id/text"
+		    
+		    android:paddingBottom="8dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		   android:gravity="center"
+		    android:textColor="#000000"
+		    android:textSize="16sp" 
+		    android:text="@string/empty"
+		    />
+	</LinearLayout>
+</LinearLayout>

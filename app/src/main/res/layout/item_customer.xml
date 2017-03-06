@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/customer_item_right" android:layout_width="match_parent"
+	android:layout_height="fill_parent" android:layout_gravity="right"> -->
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+		android:layout_height="match_parent" 
+		android:orientation="vertical"
+		android:background="#ffffff">
+
+		<LinearLayout 
+		    android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:orientation="horizontal">
+
+			<RelativeLayout 
+			    android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:layout_weight="1">
+				<ImageView 
+				    android:id="@+id/CustomerItemImage"
+					android:layout_width="130dp" 
+					android:layout_height="85dp"
+					android:scaleType="fitXY" 
+					android:adjustViewBounds="true"
+					android:layout_marginTop="5dp"
+					android:layout_marginLeft="10dp"
+					android:paddingRight="5dp" 
+					android:paddingBottom="5dp" />
+				<!-- <ImageView android:id="@+id/CustomerItemImage" android:layout_width="wrap_content" 
+					android:layout_height="wrap_content" android:paddingLeft="5dp" android:paddingTop="5dp" 
+					android:scaleType="centerInside" android:background="@drawable/shop_photo_frame" 
+					android:src="@drawable/cus1" /> -->
+			</RelativeLayout>
+			<LinearLayout 
+			    android:layout_width="match_parent"
+				android:layout_height="wrap_content" 
+				android:layout_weight="5"
+				android:orientation="vertical">
+				<TextView 
+				    android:id="@+id/CustomerItemTextView"
+					android:layout_width="wrap_content" 
+					android:layout_height="wrap_content"
+					android:singleLine="true"
+					android:ellipsize="end"
+					android:paddingLeft="5dp" 
+					android:paddingTop="4dp"
+					android:textColor="#000000" 
+					android:textStyle="bold"
+					android:textSize="18sp"
+					android:text="" />
+
+				<LinearLayout 
+				    android:layout_width="wrap_content"
+					android:layout_height="wrap_content" 
+					android:paddingLeft="5dp"
+					android:paddingTop="0dp"
+					android:orientation="horizontal">
+
+					<TextView 
+					    android:id="@+id/username_textview"
+						android:layout_width="wrap_content" 
+						android:layout_height="wrap_content"
+						android:textColor="#919191"
+						android:singleLine="true"
+						android:text="" />
+
+					<TextView android:id="@+id/CustomerItemPhone"
+						android:layout_width="wrap_content" 
+						android:layout_height="wrap_content"
+						android:textColor="#919191" 
+						android:layout_marginLeft="3dp"
+						android:text="" />
+				</LinearLayout>
+
+				<TextView
+					android:id="@+id/last_delivery_date"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="5dp"
+					android:paddingTop="0dp"
+					android:textColor="#919191"
+					android:text="" />
+
+				<TextView
+					android:id="@+id/deliver_good_count"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="5dp"
+					android:paddingTop="0dp"
+					android:textColor="#919191"
+					android:text="" />
+			</LinearLayout>
+		</LinearLayout>
+
+			<RelativeLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:paddingLeft="5dp"
+				android:paddingTop="4dp">
+				<TextView android:id="@+id/CustomerItemAddress"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingTop="3dp"
+					android:paddingLeft="5dp"
+					android:paddingBottom="3dp"
+					android:layout_marginRight="5dp"
+					android:textColor="#919191"
+					android:text="11111" />
+
+				<TextView android:id="@+id/nearby_textview"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="#919191"
+					android:paddingTop="3dp"
+					android:layout_weight="3"
+					android:layout_alignParentRight="true"
+					android:text="ssssss" />
+
+			</RelativeLayout>
+	</LinearLayout>
+	<!-- <RelativeLayout
+		    android:id="@+id/fans_layout"
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:layout_gravity="right"
+		    android:gravity="right|center"
+		    android:padding="15dp" >
+		<RelativeLayout
+		    android:id="@+id/rl_fans_layout"
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:layout_gravity="right"
+		    android:gravity="right|center"
+		    android:padding="15dp" >
+	
+			<ImageView android:id="@+id/shoucang_Image"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:src="@drawable/star_0_normal" />
+			<TextView android:id="@+id/shoucang_tv"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:layout_marginTop="32dp"
+				android:text="@string/cus_list_fans_img" 
+				android:textColor="#000000"
+				android:textSize="13sp" />
+		</RelativeLayout>
+		<RelativeLayout
+		    android:id="@+id/rl_unfans_layout"
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:gravity="right|center"
+		    android:padding="15dp"
+		    android:visibility="gone" >
+			<ImageView android:id="@+id/shoucang_finish_Image"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:src="@drawable/star_1_normal" />
+	
+			<TextView android:id="@+id/finish_tv"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:layout_marginTop="32dp"
+				android:text="@string/cus_list_fans_finish_img" 
+				android:textColor="#000000"
+				android:textSize="13sp" />
+		</RelativeLayout>
+	</RelativeLayout> -->
+<!-- </FrameLayout> -->

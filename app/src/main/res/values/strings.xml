@@ -1,0 +1,148 @@
+<resources>
+    <string name="app_name">邦微生意宝</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="empty"></string>
+    <string name="setting">设　置</string>
+    <string name="saler">首　页</string>
+    <string name="suggest">提建议</string>
+    <string name="group">群组</string>
+    <string name="nearby">附近</string>
+    <string name="listview">列表</string>
+    <string name="app_about">关于</string>
+    <string name="user_logout">安全退出</string>
+    <string name="default_user_nick">多邦建材</string>
+    <string name="deliverynote">新建送货单</string>
+
+    <string name="copyright">©2014-2016长沙邦微信息科技™</string>
+
+    <!-- printer -->
+    <string name="str_printer_state">状态</string>
+    <string name="str_printer_printing">正在打印</string>
+    <string name="str_printer_lowpower">低电压</string>
+    <string name="str_printer_nopaper">缺纸</string>
+    <string name="str_printer_bufferfull">缓冲区满</string>
+    <string name="str_printer_buffernull">缓冲区空</string>
+    <string name="str_printer_hightemperature">温度过高</string>
+    <string name="str_scaning">正在扫描</string>
+    <string name="str_unconnected">未连接!</string>
+    <string name="str_btdevice_notfound">未找到蓝牙打印机</string>
+    <string name="str_btdevice_none_paired">没有匹配设备</string>
+    <string name="str_succonnect">连接成功!</string>
+    <string name="str_faileconnect">连接失败!</string>
+    <string name="str_lose">丢失连接!</string>
+    <string name="bt_not_enabled_leaving">蓝牙没有启动，无法打印小票</string>
+    <!-- 提货单 -->
+    <string name="app_ladingbill">提货单</string>
+
+    <!-- saler fragment strings -->
+    <string name="yuan">元</string>
+    <string name="today">今日</string>
+    <string name="sevenday">七日</string>
+    <string name="thismonth">本月</string>
+    <string name="transaction_customers">成交客户0家</string>
+    <string name="settlement_title">结算确认</string>
+    <string name="gifts">赠送</string>
+    <!-- bluetooth printer -->
+    <string name="bluetooth_printer_title">打印小票</string>
+    <string name="search_bluetooth_device">搜索打印机</string>
+    <string name="unbound_bluetooth_device">未配对设备</string>
+    <string name="bound_bluetooth_device">已配对设备</string>
+
+    <!-- 送货单查询 -->
+    <string name="delivery_note_query">送货单查询</string>
+    <!-- 销售记录 -->
+    <string name="delivery_note_mouth_query">销售记录</string>
+    <!-- 提货单查询 -->
+    <string name="lading_billing_query">提货单查询</string>
+    <string name="stock_query">余货查询</string>
+    <!-- 退货单查询 -->
+    <string name="return_good_query">退货单查询</string>
+    <string name="return_good_product_detail">退货产品详情</string>
+
+    <!-- 送货单详情 -->
+    <string name="deliverynote_detail_title">送货单详情</string>
+
+    <!-- 客户信息 -->
+    <string name="customer_info">客户信息</string>
+    <string name="cus_code_text">编码：</string>
+    <string name="store_type_text">分类：</string>
+    <string name="store_area_text">区域：</string>
+    <string name="store_position_text">位置：</string>
+    <string name="cus_money_query">消费查询</string>
+    <string name="quick_kaidan">快速开单</string>
+    <string name="near_by_customer">附近客户</string>
+
+    <!-- 客户详情 -->
+    <string name="customer_detail">客户详情</string>
+    <string name="customer_name">客户名称</string>
+    <string name="customer_code">客户编码</string>
+    <string name="customer_type">客户类型</string>
+    <string name="customer_contact">客户联系人</string>
+    <string name="customer_area">客户营销区域</string>
+    <string name="customer_detail_address">客户详细地址</string>
+    <string name="customer_mobile">客户电话</string>
+
+    <!-- 联系人 -->
+    <string name="contactTitle">联系人</string>
+    <string name="contactName">姓名</string>
+    <string name="contactMobile">手机</string>
+    <!-- 客户列表 -->
+    <string name="cus_list_edit">     请输入店名或手机号码查询     </string>
+    <string name="cuscon_list_edit">输入店名/人名/手机号码查询</string>
+    <string name="cus_list_fans_img">未收藏</string>
+    <string name="cus_list_fans_finish_img">已收藏</string>
+
+    <!-- 客户添加 -->
+    <string name="take_photo">拍照上传</string>
+    <string name="store_name">店名</string>
+    <string name="store_name_edit">请输入店名</string>
+    <string name="add_customer_address">地址</string>
+    <string name="cellphone_text">固定电话</string>
+    <string name="cellphone_edit">请输入固定电话</string>
+    <string name="store_address_edit">请输入地址</string>
+    <string name="detail_address_text">详细地址</string>
+    <string name="detail_address_edit">请输入详细地址</string>
+    <string name="store_type">店面类型</string>
+    <string name="store_first_linkman">首要联系人</string>
+    <string name="store_first_phone">电话</string>
+    <string name="store_second_linkman">关联联系人</string>
+    <string name="store_second_phone">电话</string>
+    <string name="store_submit">提交</string>
+    <string name="check_store_type">店面类型必须选择两个</string>
+    <string name="customerAdd_area">营销区域</string>
+    <string name="regional_area">行政区域</string>
+    <!-- 上传图片底部弹出菜单 -->
+    <string name="hint_takephoto">拍   照</string>
+    <string name="hint_choice">从本地相册选择</string>
+    <string name="hint_cancel">取   消</string>
+
+    <!-- 客户编辑 -->
+    <string name="store_edit_name">店名</string>
+    <string name="customerEdit_code">编码</string>
+    <string name="customerEdit_telephone">固定电话</string>
+    <string name="customerEdit_area">营销区域</string>
+    <string name="store_address">详细地址</string>
+    <string name="customerEdit_administrative_area">行政区域</string>
+    <string name="contact_first_linkman">首要联系人</string>
+    <string name="contact_first_mobile">手机</string>
+    <string name="contact_second_mobile">电话</string>
+    <!-- 推送文本 -->
+    <string name="tag_hint">Tag为大小写字母，数字，下划线,中文， 多个用以逗号分隔</string>
+    <string name="alias_hint">Alias为大小写字母，数字，下划线</string>
+    <string name="style_hint">style为数字</string>
+    <string name="error_style_empty">style不能为空</string>
+    <string name="error_alias_empty">alias不能为空</string>
+    <string name="error_tag_empty">tag不能为空</string>
+    <string name="error_tag_gs_empty">格式不对</string>
+    <string name="error_network">网络连接异常,初始化失败 请检查网络！</string>
+    <string name="logining">程序在后台执行, 请查看日志！</string>
+    <string name="setting_su">设置成功</string>
+    <!-- 下拉框文本 -->
+
+
+    <string name="test">梨性味甘寒，具有清心润肺的作用，对肺结核，气管炎和上呼吸道感染的患者所出现的咽干、痒痛、音哑、痰稠等症皆有效。梨具有降低血压、养阴清热的功效。患高血压、心脏病、肝痰、肝硬化的病人，经常吃些梨大有益处。能促进食欲，帮助消化，并有利尿通便和解热作用，可用于高热时补充水分和营养。煮熟的梨有助于肾脏排泄尿酸和预防痛风、风湿病和关节炎。具有润燥消风，醒酒解毒等功效。在秋季气候干燥时，人们常感到皮肤瘙痒、口鼻干燥，有时干咳少痰，每天吃一两个梨可缓解秋燥，有益健康。梨可清喉降火。播音、演唱人员经常食用煮好的熟梨，能增加口中的津液，起到保养嗓子的作用。≮适用人群≯一般人都可食用。肝炎、肝硬化患者、肾功能不佳者尤其适合于。≮适用量≯每天1个即可。≮特别提示≯梨性寒凉，故一次不要吃得过多。≮健康红绿灯≯脾胃虚寒者、发热的人不宜吃生梨，可把梨切块煮水食用。梨性味甘寒，具有清心润肺的作用，对肺结核，气管炎和上呼吸道感染的患者所出现的咽干、痒痛、音哑、痰稠等症皆有效。梨具有降低血压、养阴清热的功效。患高血压、心脏病、肝痰、肝硬化的病人，经常吃些梨大有益处。能促进食欲，帮助消化，并有利尿通便和解热作用，可用于高热时补充水分和营养。煮熟的梨有助于肾脏排泄尿酸和预防痛风、风湿病和关节炎。具有润燥消风，醒酒解毒等功效。在秋季气候干燥时，人们常感到皮肤瘙痒、口鼻干燥，有时干咳少痰，每天吃一两个梨可缓解秋燥，有益健康。梨可清喉降火。播音、演唱人员经常食用煮好的熟梨，能增加口中的津液，起到保养嗓子的作用。≮适用人群≯一般人都可食用。肝炎、肝硬化患者、肾功能不佳者尤其适合于。≮适用量≯每天1个即可。≮特别提示≯梨性寒凉，故一次不要吃得过多。≮健康红绿灯≯脾胃虚寒者、发热的人不宜吃生梨，可把梨切块煮水食用。</string>
+</resources>

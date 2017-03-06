@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <include layout="@layout/activity_bluetooth_printer_title" android:focusable="true"/>
+    <LinearLayout android:id="@+id/first_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/summary_font_color"
+            android:text="已配对设备" />
+        <ListView
+            android:id="@+id/return_paired_devices"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:cacheColorHint="#00000000"
+	    	android:listSelector="#00000000">
+        </ListView>
+        
+    </LinearLayout>
+	<LinearLayout
+	    android:layout_below="@id/first_layout"
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+          <TextView
+            android:id="@+id/return_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/summary_font_color"
+            android:text="未配对设备" />
+	   
+	    
+        <ListView
+            android:id="@+id/newReturn_devices"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:cacheColorHint="#00000000"
+	    	android:listSelector="#00000000" />
+       
+    </LinearLayout> 
+    
+	<Button
+         android:id="@+id/BluetoothPrinter_printReturnBtn"
+         android:enabled="false"
+         android:focusableInTouchMode="false"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_centerInParent="true"
+         android:layout_centerVertical="true"
+         android:gravity="center"
+         android:layout_margin="5dp"
+         android:background="@drawable/dialog_positive_btn_bg"
+         android:text="打印小票"
+         android:textColor="#ffffff"
+         android:textSize="20sp" />
+	
+</LinearLayout>

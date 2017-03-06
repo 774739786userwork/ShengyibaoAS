@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:id="@+id/titlerelativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#1C86EE"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/Billinglist_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/about_showleft_selector" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的客户"
+            style="@style/A1_Font"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/middlelinearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titlerelativelayout" >
+
+        <LinearLayout
+            android:id="@+id/BillingList_Customertype"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:background="@drawable/area_tab_linear_background">
+
+            <TextView
+                android:id="@+id/BillingList_title_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/my_tab_background"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="#666666" />
+
+            <ImageView
+                android:id="@+id/Search_billingcustomer_img"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ic_arrow_down_black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/area_tab_linear_background" >
+
+            <TextView
+                android:id="@+id/Sortlist_title_textbtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/my_tab_background"
+                android:drawableRight="@drawable/ic_arrow_down_black"
+                android:clickable="true"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:text="默认排序"
+                android:textColor="#666666" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--内容列表展示-->
+    <com.bangware.shengyibao.view.RefreshListView
+	    android:id="@+id/BillingCustomer_ListView"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@+id/middlelinearlayout"
+	    android:cacheColorHint="#00000000"
+	    android:listSelector="#00000000"  
+	    android:clickable="true"
+        android:divider="#cfcfcf"
+        android:dividerHeight="0.5dp"/>
+
+    <!--左侧客户按条件查询-->
+    <ListView
+        android:id="@+id/Billing_customerlist_toplist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/middlelinearlayout"
+        android:background="#f4f4f4"
+        android:listSelector="#00000000"
+        android:divider="@null"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:scrollbars="none" />
+
+    <!--右侧按时间与次数排序查询-->
+    <ListView
+        android:id="@+id/orderCondition_sortList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/middlelinearlayout"
+        android:background="#f4f4f4"
+        android:listSelector="#00000000"
+        android:divider="@null"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:scrollbars="none" />
+ </RelativeLayout>

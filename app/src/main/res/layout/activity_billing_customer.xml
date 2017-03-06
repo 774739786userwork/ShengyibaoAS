@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="#ffffff">
+    
+	<!-- hearder 头部标签布局 -->
+	<RelativeLayout
+        android:id="@+id/titlerelativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/title_bar"
+        android:gravity="center_vertical" >
+
+        <ImageView
+            android:id="@+id/Billing_customer_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:background="@drawable/about_showleft_selector" />
+
+        <LinearLayout
+            android:id="@+id/Cuslist_customerType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/Cuslist_title_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="开单客户"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+            
+        </LinearLayout>
+    </RelativeLayout>
+
+	<com.bangware.shengyibao.view.RefreshListView
+	    android:id="@+id/Billing_customerListView"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+		android:cacheColorHint="#00000000"
+	    android:listSelector="#00000000"  
+	    android:clickable="true"
+        android:divider="#cfcfcf"
+        android:dividerHeight="0.5dp"
+		android:layout_below="@+id/titlerelativelayout" />
+</RelativeLayout>

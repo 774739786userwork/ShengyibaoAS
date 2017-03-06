@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bangware.shengyibao.activity">
+
+    <permission
+        android:name="com.bangware.shengyibao.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+    <!-- Required 一些系统要求的权限，如访问网络等 -->
+    <uses-permission android:name="com.bangware.shengyibao.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 管理蓝牙设备的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <application
+        android:name="com.bangware.shengyibao.utils.DemoApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".StartActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 获取百度地图的key -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="dOfYvcmzClLpKDxjyg4WPi2tvHVtryiI" />
+
+        <!-- 注册百度地图定位服务 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <!-- 注册版本更新服务 -->
+        <service android:name="com.bangware.shengyibao.updateversion.service.UpdateVersionService" />
+        <!-- 推送主程序 -->
+        <activity android:name="com.bangware.shengyibao.jpush.view.JPushActivity" />
+        <!-- For test only 测试高级功能 -->
+        <activity
+            android:name="com.bangware.shengyibao.jpush.view.PushSetActivity"
+            android:label="@string/app_name" />
+        <!-- For test only 测试设置 -->
+        <activity
+            android:name="com.bangware.shengyibao.jpush.view.SettingActivity"
+            android:label="@string/app_name" />
+        <!-- For test only 测试状态通知栏，需要打开的Activity -->
+        <activity
+            android:name="com.bangware.shengyibao.jpush.view.TestActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="jpush.testAction" />
+
+                <category android:name="jpush.testCategory" />
+            </intent-filter>
+        </activity>
+
+        <!-- Rich push 核心功能 since 2.0.6 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle" />
+
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.bangware.shengyibao" />
+            </intent-filter>
+        </activity>
+        <!-- Required  SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Required SDK 核心功能 -->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService" />
+
+                <category android:name="com.bangware.shengyibao" />
+            </intent-filter>
+        </service>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <!-- Required  显示通知栏 -->
+                <category android:name="com.bangware.shengyibao" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.AlarmReceiver"
+            android:exported="false" />
+
+        <!-- User defined.  For test only  用户自定义的广播接收器 -->
+        <receiver
+            android:name="com.bangware.shengyibao.jpush.MyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.UNREGISTRATION" />
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" />
+                <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.bangware.shengyibao" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required  . Enable it you can get statistics data with channel -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="7b4e72d63327f49c2d9c5168" />
+        <!-- </>值来自开发者平台取得的AppKey -->
+
+
+        <!-- 主页 -->
+        <activity
+            android:name="com.bangware.shengyibao.main.view.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BaseActivity"
+            android:screenOrientation="portrait" />
+        <!-- 主页的月开单客户查询 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.MonthCustomerBillingActivity"
+            android:screenOrientation="portrait" />
+        <!-- 主页面销售金额 -->
+        <activity
+            android:name="com.bangware.shengyibao.salesamount.view.SalesAmountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <!-- 登录页 -->
+        <activity
+            android:name="com.bangware.shengyibao.user.view.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 开单选择客户 -->
+        <activity
+            android:name="com.bangware.shengyibao.returngood.view.ChoiceContactActivity"
+            android:screenOrientation="portrait" />
+        <!-- 客户列表 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.CustomerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- 客户详情 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.CustomerInfoActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 客户信息 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.CustomerDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 客户进货记录更多查询 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.CustomerPurchaseMoreActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <!-- 联系人 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.ContactActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 百度地图 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.MapViewActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 客户编辑 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.CustomerEditActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <!-- 客户营销区域 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.CustomerSalerAreaActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 客户编辑测试页面 -->
+
+
+        <!-- 客户添加 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.AddCustomerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <!-- 新增联系人 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.AddContactsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!-- 客户联系人 -->
+        <activity
+            android:name="com.bangware.shengyibao.customercontacts.view.CustomerContactsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!-- 客户联系人查询 -->
+        <activity
+            android:name="com.bangware.shengyibao.customercontacts.view.QueryCustomerContactsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <!-- 联系人详情 -->
+        <activity
+            android:name="com.bangware.shengyibao.customercontacts.view.ContactDetailsActivity"
+            android:screenOrientation="portrait" />
+        <!-- 修改联系人界面 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.UpdateContactsActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <!-- 查看照片详情 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.ShowImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.bangware.shengyibao.customer.view.ShowImageViewActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 送货单开单页 -->
+        <!-- <activity android:name="DeliveryNoteNewAcitivity" android:screenOrientation="portrait"></activity> -->
+        <activity
+            android:name="com.bangware.shengyibao.shopcart.view.ShopCartAcitivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 送货单查询页 -->
+        <activity
+            android:name="com.bangware.shengyibao.deliverynote.view.DeliveryNoteQueryActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 送货单详情页 -->
+        <activity
+            android:name="com.bangware.shengyibao.deliverynote.view.DeliveryNoteDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 提货单查询页 -->
+        <activity
+            android:name="com.bangware.shengyibao.ladingbilling.view.LadingbillingQueryActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 退货单查询页 -->
+        <activity
+            android:name="com.bangware.shengyibao.returngood.view.ReturngoodQueryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <!-- 退货单查询产品详情页 -->
+        <activity
+            android:name="com.bangware.shengyibao.returngood.view.ReturnGoodProductActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 退货处理 -->
+        <activity
+            android:name="com.bangware.shengyibao.returngood.view.ReturnsProcessingActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 退货确认界面 -->
+        <activity
+            android:name="com.bangware.shengyibao.returngood.view.RefundActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 快速开单选择客户联系人 -->
+        <activity
+            android:name="com.bangware.shengyibao.customercontacts.view.QuickBillingActivity"
+            android:screenOrientation="portrait" />
+        <!-- 快速开单查询联系人 -->
+        <activity
+            android:name="com.bangware.shengyibao.customercontacts.view.QueryQuickBilingActivity"
+            android:screenOrientation="portrait" />
+        <!-- 销售记录 -->
+        <activity
+            android:name="com.bangware.shengyibao.deliverynote.view.DeliveryNoteMouthQueryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <!-- 日销售清单 -->
+        <activity
+            android:name="com.bangware.shengyibao.daysaleaccount.view.SaleAccountListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <!-- 开单客户数 -->
+        <activity
+            android:name="com.bangware.shengyibao.deliverynote.view.BillingCustomersActivity"
+            android:screenOrientation="portrait" />
+        <!-- 扫描二维码 -->
+        <activity
+            android:name=".FocusWeChat"
+            android:screenOrientation="portrait" />
+
+        <!-- 结账 -->
+        <activity
+            android:name="com.bangware.shengyibao.shopcart.view.SettlementActivity"
+            android:screenOrientation="portrait" />
+        <!-- 送货单蓝牙打印 -->
+        <activity
+            android:name="com.bangware.shengyibao.deliverynote.view.BluetoothPrinterActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 退货单蓝牙打印 -->
+        <activity
+            android:name="com.bangware.shengyibao.returngood.view.ReturnBluetoothPrinterActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 附近客户 -->
+        <activity android:name="com.bangware.shengyibao.customer.view.NearbyCustomerActivity" />
+
+        <!-- 销售排名 -->
+        <activity
+            android:name="com.bangware.shengyibao.salesamount.view.SaleRankingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <!-- 修改密码界面 -->
+        <activity
+            android:name="com.bangware.shengyibao.user.view.UpdatePasswordActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 底部弹出菜单界面 -->
+        <activity
+            android:name=".RemarkPopupWindow"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyDialogStyleBottom" />
+
+        <!-- 底部弹出省市区选择框 -->
+        <activity
+            android:name=".ProvinceCityAreaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyDialogStyleBottom" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".SettingActivity" />
+        <!-- 意见反馈 -->
+        <activity
+            android:name=".Suggest.view.SuggestActivity"
+            android:screenOrientation="portrait" />
+        <!-- 销售清单产品详情 -->
+        <activity
+            android:name="com.bangware.shengyibao.daysaleaccount.view.SaleAccountProductActivity"
+            android:screenOrientation="portrait" />
+        <!-- 余货查询 -->
+        <activity
+            android:name="com.bangware.shengyibao.ladingbilling.view.StockQueryActivity"
+            android:screenOrientation="portrait" />
+        <!-- 订货单 -->
+        <activity
+            android:name="com.bangware.shengyibao.purchaseorder.view.PurchaseOrderActivity"
+            android:screenOrientation="portrait" />
+        <!-- 订货单详情 -->
+        <activity
+            android:name="com.bangware.shengyibao.purchaseorder.view.PurchaseOrderDetailActivity"
+            android:screenOrientation="portrait" />
+        <!-- 欠货欠款 -->
+        <activity
+            android:name="com.bangware.shengyibao.debtowed.DebtOwedMainActivity"
+            android:screenOrientation="portrait" />
+        <!-- 组内排名 -->
+        <activity
+            android:name="com.bangware.shengyibao.salesamount.view.GroupRankingActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新建日销售清单 -->
+        <activity
+            android:name="com.bangware.shengyibao.daysaleaccount.view.AddSaleAccountActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- 快速查询业务员 -->
+        <activity
+            android:name="com.bangware.shengyibao.daysaleaccount.view.ChoiceSalerPersonActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name="com.bangware.shengyibao.manager.shoptype.view.ShopTypePositionActivity" />
+        <activity
+            android:name="com.bangware.shengyibao.manager.exlistdemo.ExListDemoActivity"
+            android:theme="@style/android:Theme.Light" />
+        <activity
+            android:name="com.bangware.shengyibao.manager.exlistdemo.ChooseItemsActivity"
+            android:theme="@style/android:Theme.Light" />
+        <activity android:name=".HtmlWebActivity" />
+        <activity android:name="com.bangware.shengyibao.main.fragment.purchasefragment.PurchaseReportActivity"></activity>
+    </application>
+
+</manifest>

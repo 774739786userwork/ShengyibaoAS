@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    
+	<LinearLayout 
+	    android:id="@+id/pro_city_area_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="270dp"
+	    android:gravity="center_horizontal"
+	    android:background="@drawable/shape_product_dialog"
+	    android:orientation="vertical"
+	    android:layout_centerInParent="true">
+	    
+		
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请选择省市区"
+            android:textColor="#ffffff"
+            android:paddingTop="5dip"
+            android:textSize="17sp" />
+	    
+	      <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="8dip"
+	        android:orientation="horizontal" >
+	
+	        <com.bangware.shengyibao.utils.wheel.WheelView
+	            android:id="@+id/id_province"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+	
+	        <com.bangware.shengyibao.utils.wheel.WheelView
+	            android:id="@+id/id_city"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+	
+	        <com.bangware.shengyibao.utils.wheel.WheelView
+	            android:id="@+id/id_district"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+	    </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_marginBottom="120dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+	        android:layout_height="35dp"
+            android:text="确定"
+            android:background="@drawable/selector_button_corners"
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
+	</LinearLayout>
+</RelativeLayout>

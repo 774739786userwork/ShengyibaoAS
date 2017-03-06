@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:background="#1C86EE">
+ 	<RelativeLayout
+        android:id="@+id/deliverynote_detail_title"
+        android:layout_width="match_parent"
+	    android:layout_height="45dp">
+
+		<ImageButton
+			android:id="@+id/deliverynote_detail_GoBackBtn"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_marginLeft="5dip"
+			android:layout_centerVertical="true"
+			android:background="@drawable/about_showleft_selector"
+			android:gravity="center"
+			android:includeFontPadding="false" />
+
+		<TextView
+			android:id="@+id/deliveryNote_detail_Customer_Name"
+			style="@style/A1_Font"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_centerVertical="true"
+			android:layout_toRightOf="@+id/deliverynote_detail_GoBackBtn"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:text="湘阴建材" />
+	</RelativeLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/deliveryNote_detail_Customer_Id"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="15dp"
+			android:layout_marginTop="4dp"
+			android:textColor="#fff"
+			android:textSize="17sp"
+			android:text=""
+			android:visibility="gone"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:padding="3dp"
+			android:orientation="horizontal">
+
+			<TextView
+				android:id="@+id/deliveryNote_detail_Customer_Contact"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:layout_weight="1"
+				android:textColor="@color/gray"
+				android:textSize="15sp"
+				android:text="任老板"/>
+			<TextView
+				android:id="@+id/deliveryNote_detail_Customer_Mobile"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:layout_weight="1"
+				android:textColor="@color/gray"
+				android:textSize="15sp"
+				android:text="13878785566"/>
+		</LinearLayout>
+
+
+		<TextView
+			android:id="@+id/deliveryNote_detail_Customer_Address"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="3dp"
+			android:layout_marginLeft="50dp"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:text="绿地海外滩22栋103门面"
+			android:textColor="@color/gray"
+			android:textSize="15.0sp" />
+	</LinearLayout>
+</LinearLayout>

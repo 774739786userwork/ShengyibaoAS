@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:background="#1C86EE">
+    <RelativeLayout 
+        android:id="@+id/deliverynote_title"
+        android:layout_width="match_parent"
+	    android:layout_height="45dp">
+	     <!-- 左边按钮 -->
+	    <ImageButton
+	        android:id="@+id/DeliveryNote_Goback"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="5dp"
+	        android:layout_centerVertical="true"
+	        android:background="@drawable/about_showleft_selector"
+	        android:gravity="center"
+	        android:includeFontPadding="false" />
+	    
+	    <TextView
+            android:id="@+id/ShopCart_Customer_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/A1_Font"
+            android:textSize="17sp"
+            android:layout_toRightOf="@+id/DeliveryNote_Goback"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:singleLine="true"
+            android:ellipsize="end"/>
+	</RelativeLayout>
+
+	<LinearLayout
+		 android:layout_width="match_parent"
+		 android:layout_height="wrap_content"
+		 android:orientation="vertical">
+
+		<TextView android:id="@+id/ShopCart_Customer_Id"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:visibility="gone"
+			android:layout_marginLeft="15dp"
+			android:layout_marginTop="4dp"
+			android:textColor="@color/commo_text_color"
+			android:textSize="17sp"
+			android:text=""/>
+		<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+			android:layout_marginLeft="15dp"
+			android:padding="3dp"
+	        android:orientation="horizontal">
+		  	<TextView
+	            android:id="@+id/ShopCart_Customer_Contact"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:textColor="@color/gray"
+	            android:textSize="15sp"
+	            android:layout_weight="1"
+	            android:text="1"/>
+		 	<TextView
+	            android:id="@+id/ShopCart_Customer_Mobile"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:textColor="@color/gray"
+				android:gravity="center"
+	            android:textSize="15sp"
+	            android:layout_weight="10"
+	            android:text="2"/>
+		</LinearLayout>
+        <TextView
+            android:id="@+id/ShopCart_Customer_Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+			android:padding="3dp"
+            android:singleLine="true"
+			android:ellipsize="end"
+            android:text=""
+			android:textColor="@color/gray"
+            android:textSize="15.0sp" />
+	</LinearLayout>
+</LinearLayout>

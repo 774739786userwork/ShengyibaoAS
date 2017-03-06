@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/tools_box_bg"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:id="@+id/llRoot"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.bangwei.app.shengyibao.slidemenu.RoundedImageView
+            android:id="@+id/headImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25.0dp"
+            android:adjustViewBounds="true"
+            android:maxHeight="80dp"
+            android:maxWidth="80dp"
+            android:src="@drawable/head_default" />
+
+        <TextView
+            android:id="@+id/nickNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10.0dp"
+            android:text="@string/default_user_nick"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/orgNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10.0dp"
+            android:layout_marginLeft="10.0dp"
+            android:layout_marginRight="10.0dp"
+            android:layout_marginTop="6.0dp"
+            android:textColor="#ffccccc6"
+            android:textSize="12.0sp" />
+
+        <include
+            android:id="@+id/salerBtnLayout"
+            layout="@layout/toolbox_item_saler" />
+
+        <include
+            android:id="@+id/settingBtnLayout"
+            layout="@layout/toolbox_item_setting" />
+        
+        
+        <include
+            android:id="@+id/suggestBtnLayout"
+            layout="@layout/toolbox_item_suggest" />
+        
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#ff1c1c1b" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="#ff474745" />
+
+        <TextView
+            android:id="@+id/logoutBtnLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center"
+            android:layout_marginTop="70.0dp"
+            android:gravity="center"
+            android:padding="15dp"
+            android:background="@drawable/tools_box_invite_btn_selector"
+            android:text="@string/user_logout"
+            android:textColor="#ffccccc6"
+            android:textSize="20sp" />
+        <!-- android:background="@drawable/selector_button_corners" -->
+    </LinearLayout>
+
+</ScrollView>

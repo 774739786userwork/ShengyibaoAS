@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--title_arrow_down_pressed    title_arrow_down_normal-->
+    <item android:drawable="@drawable/ic_arrow_down_black" android:state_pressed="true"/>
+    <!-- pressed -->
+    <item android:drawable="@drawable/ic_arrow_down_black" android:state_selected="true"/>
+    <!-- focused -->
+    <item android:drawable="@drawable/ic_arrow_up_black"/>
+    <!-- default -->
+
+</selector>

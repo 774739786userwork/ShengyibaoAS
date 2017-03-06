@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="50dp"
+	android:orientation="vertical" >
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="50dp">
+
+		<TextView
+			android:id="@+id/textview_group_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dp"
+			android:layout_centerVertical="true"
+			android:text="店面类型"
+			android:textStyle="bold"
+			android:textSize="18sp"/>
+
+		<ImageView
+			android:id="@+id/arrow_image"
+			android:layout_width="30dp"
+			android:layout_height="30dp"
+			android:layout_marginLeft="15dp"
+			android:layout_centerVertical="true"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="20dp"
+			android:gravity="right"/>
+	</RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="target-densitydpi=device-dpi" />
+    <style type="text/css">
+        body {
+        background: #ffffff none repeat scroll 0 0;
+        color: #434343;
+        font-family: Helvetica;
+        font-size: 30px;
+        line-height: 1.5em;
+        }
+
+        .pic {
+        width: 350px;
+        height: 232px;
+        float: right;
+        }
+    </style>
+    <script type="text/javascript">
+        function show(jsondata) {
+            var jsonobjs = eval(jsondata);
+            var contentImg = document.getElementById("pic_detail");
+            var contentDiv = document.getElementById("text_detail");
+            contentImg.src = jsonobjs[0].pic;
+            contentDiv.innerHTML = jsonobjs[0].content;
+        }
+    </script>
+
+</head>
+
+<body onload="javascript:MyContent.showContacts()">
+<div class="text_css">
+    <img id="pic_detail" class="pic" src="" alt="" />
+    <div id="text_detail"></div>
+</div>
+</body>
+</html>

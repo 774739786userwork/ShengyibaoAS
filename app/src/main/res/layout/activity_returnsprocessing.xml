@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+	<RelativeLayout
+		android:id="@+id/titlerelativelayout"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="#1C86EE"
+		android:gravity="center_vertical" >
+
+		<ImageView
+			android:id="@+id/ReturnsProcessing_back"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:paddingLeft="10dp"
+			android:background="@drawable/about_showleft_selector" />
+
+		<TextView
+			android:id="@+id/ReturnsProcessing_Customer_Name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="@color/white"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:textSize="17sp"
+			android:layout_marginLeft="15dp"
+			android:layout_marginTop="10dp"
+			android:layout_toRightOf="@+id/ReturnsProcessing_back"
+			android:text="湘阴建材"/>
+	</RelativeLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#1C86EE"
+		android:gravity="left"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/ReturnsProcessing_Customer_Id"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="15dp"
+			android:textColor="#fff"
+			android:textSize="17sp"
+			android:text=""
+			android:visibility="gone"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:layout_height="wrap_content">
+
+			<TextView
+				android:id="@+id/ReturnsProcessing_Customer_Contact"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="15dp"
+				android:layout_weight="1"
+				android:textColor="@color/gray"
+				android:textSize="15sp"
+				android:text="任老板"/>
+			<TextView
+				android:id="@+id/ReturnsProcessing_Customer_Mobile"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:layout_weight="10"
+				android:layout_marginLeft="5dp"
+				android:textColor="@color/gray"
+				android:textSize="15sp"
+				android:text="13878785566"/>
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/ReturnsProcessing_Customer_Address"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:ellipsize="end"
+			android:singleLine="true"
+			android:layout_marginLeft="15dp"
+			android:text="绿地海外滩22栋103门面"
+			android:textColor="@color/gray"
+			android:textSize="15.0sp" />
+
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:orientation="horizontal" >
+		<ListView
+			android:id="@+id/left_listview"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="2"
+			android:scrollbars="none"
+			android:divider="@null"></ListView>
+
+		<com.bangware.shengyibao.view.PinnedHeaderListView
+			android:id="@+id/pinnedListView"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_marginLeft="@dimen/dp10"
+			android:layout_weight="5"
+			android:divider="#cfcfcf"
+			android:dividerHeight="0.5dp"
+			android:background="@android:color/white">
+
+		</com.bangware.shengyibao.view.PinnedHeaderListView>
+	</LinearLayout>
+	<RelativeLayout
+		android:id="@+id/ReturnsProcessing_board"
+		android:layout_width="match_parent"
+		android:layout_height="58dp"
+		android:layout_alignParentBottom="true"
+		android:background="@null">
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="58dp"
+			android:layout_alignParentBottom="true"
+			android:background="#000000"
+			android:gravity="center_vertical"
+			android:alpha="0.6">
+			<TextView
+				android:id="@+id/ReturnsProcessing_Amount"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="70dp"
+				android:textColor="#ff0000"
+				android:text="¥0元"
+				android:textSize="24.0sp"/>
+		</RelativeLayout>
+		<RelativeLayout
+			android:id="@+id/ReturnsProcessingIcon"
+			android:layout_width="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_height="58dp"
+			android:layout_alignParentBottom="true">
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/icon_cart"
+				android:layout_marginLeft="20dp"
+				android:layout_marginTop="10dp"/>
+		</RelativeLayout>
+		<Button
+			android:id="@+id/ReturnsProcessing_Btn"
+			android:layout_width="120dp"
+			android:layout_height="match_parent"
+			android:layout_alignParentRight="true"
+			android:visibility="gone"
+			android:layout_centerVertical="true"
+			android:background="@drawable/dialog_positive_btn_bg"
+			android:gravity="center"
+			android:paddingLeft="5dp"
+			android:paddingRight="5dp"
+			android:text="退货"
+			android:textColor="@color/white"
+			android:textSize="18sp" />
+	</RelativeLayout>
+</LinearLayout>

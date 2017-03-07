@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="#1C86EE"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/shop_flowimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:background="@drawable/about_showleft_selector"/>
+            <TextView
+                android:text="店面类型及位置选择"
+                android:textSize="18sp"
+                android:layout_marginLeft="50dp"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/surebtn_shopflow"
+                android:text="确定"
+                android:layout_marginRight="10dp"
+                android:textSize="17sp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@drawable/textview_change_focus_color"/>
+        </LinearLayout>
+
+        <com.bangware.shengyibao.customer.shoptypeflowlayout.flowlayout.FlowLayout
+            android:id="@+id/mFlowLayout"
+            app:horizontalSpacing="8dp"
+            app:verticalSpacing="8dp"
+            app:textSize="16sp"
+            app:equally="true"
+            app:stype="select"
+            app:isSingle="false"
+            app:itemPaddingLeft="5dp"
+            app:itemPaddingTop="2dp"
+            app:itemPaddingRight="5dp"
+            app:itemPaddingBottom="2dp"
+            app:maxNum="2"
+            app:flowGravity="center"
+            app:textColor="@color/test_flowlayout_item_text_color"
+            app:flowBackground="@drawable/flow_item_bg_selector"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/test_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="18sp"
+            android:textColor="@color/red"
+            android:padding="10dp"
+            android:text="注：1-5个为店面位置，6-13个为店面类型，各选一个"/>
+    </LinearLayout>
+</RelativeLayout>

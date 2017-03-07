@@ -9,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.bangware.shengyibao.activity.R;
-import com.bangware.shengyibao.daysaleaccount.view.SaleAccountListActivity;
-import com.bangware.shengyibao.deliverynote.view.DeliveryNoteMouthQueryActivity;
 import com.bangware.shengyibao.main.fragment.purchasefragment.PurchaseReportActivity;
-import com.bangware.shengyibao.salesamount.view.SaleRankingActivity;
-import com.bangware.shengyibao.salesamount.view.SalesAmountActivity;
+import com.bangware.shengyibao.main.fragment.salerreportmanager.SalerReportActivity;
+import com.bangware.shengyibao.main.fragment.storemanager.StoreReportActivity;
 
 /**
  * Created by bangware on 2017/2/22.
@@ -66,16 +64,16 @@ public class ReportFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.saler_report_rel:
-                    intent = new Intent(getActivity(), SalesAmountActivity.class);
+                    intent = new Intent(getActivity(), SalerReportActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.store_report_rel:
-                    intent = new Intent(getActivity(), DeliveryNoteMouthQueryActivity.class);
+                    intent = new Intent(getActivity(), StoreReportActivity.class);
                     startActivity(intent);
                     break;
                 case R.id.fund_report_rel:
-                    intent = new Intent(getActivity(), SaleAccountListActivity.class);
-                    startActivity(intent);
+                    /*intent = new Intent(getActivity(), SaleAccountListActivity.class);
+                    startActivity(intent);*/
                     break;
             }
         }

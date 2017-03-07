@@ -484,7 +484,9 @@
             android:name="com.bangware.shengyibao.manager.exlistdemo.ChooseItemsActivity"
             android:theme="@style/android:Theme.Light" />
         <activity android:name=".HtmlWebActivity" />
-        <activity android:name="com.bangware.shengyibao.main.fragment.purchasefragment.PurchaseReportActivity"></activity>
+        <activity android:name="com.bangware.shengyibao.main.fragment.purchasefragment.PurchaseReportActivity" />
+        <activity android:name="com.bangware.shengyibao.main.fragment.storemanager.StoreReportActivity" />
+        <activity android:name="com.bangware.shengyibao.main.fragment.salerreportmanager.SalerReportActivity"></activity>
     </application>
 
 </manifest>

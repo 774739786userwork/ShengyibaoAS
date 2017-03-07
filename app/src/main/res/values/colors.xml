@@ -32,4 +32,28 @@
     <color name="gray_background_right">#FAFAFA</color>
     <color name="black">#444444</color>
     <color name="gray_light">#EBEDF0</color>
+
+    <!-- 流式布局颜色样式 -->
+    <color name="item_text">#303F9F</color>
+    <color name="flow_check_color">#FF4081</color>
+    <color name="flow_uncheck_color">#22b3de</color>
+    <color name="flow_unenable_color">#5e75d8</color>
+    <color name="flow_biankuang_color">#f55451</color>
+    <color name="flow_unbiankuang_color">#22b3de</color>
+
+
+    <color name="titlebg">#ffffff</color>
+
+    <!-- 公共分割线-->
+    <color name="stroke_checked_color">#FF4081</color>
+    <color name="stroke_unchecked_color">#e3e3e3</color>
+
+    <color name="flowlayout_checked_color">#57609e</color>
+    <color name="flowlayout_unchecked_color">#f2f5f9</color>
+    <color name="flowlayout_unenable_color">#999999</color>
+
+    <color name="flowlayout_checked_tv_color">#8d8ea3</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
 </resources>

@@ -23,4 +23,10 @@
     <dimen name="dp30">30dp</dimen>
     <dimen name="dp6">6dp</dimen>
     <dimen name="navigation_icon_size">48dp</dimen>
+
+    <dimen name="flow_biankuang">1dp</dimen>
+    <dimen name="flow_yuanjiao">20dp</dimen>
+
+    <!-- 公共分割线-->
+    <dimen name="dirver_horizontal_height">1dip</dimen>
 </resources>

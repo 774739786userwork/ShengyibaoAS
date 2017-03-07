@@ -44,10 +44,9 @@
 			android:numColumns="4"
 			android:verticalSpacing="-0.5dp"
 			android:horizontalSpacing="-0.5dp"
+			android:listSelector="@android:color/transparent"
 			android:stretchMode="columnWidth"
-			android:gravity="center"
-			android:listSelector="@drawable/gridview_salearea_selector"
-		 />
+			android:gravity="center"/>
 	</LinearLayout>
 </RelativeLayout>
 <!-- android:listSelector="@android:color/transparent" -->

@@ -5,9 +5,11 @@ import android.util.Log;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
@@ -97,6 +99,31 @@ public class MyPost {
 	        se.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
 	        post.setEntity(se);
 			httpResponse = client.execute(post);
+			Log.e("HTTP", "CODE" + httpResponse.getStatusLine().getStatusCode());
+			if (httpResponse.getStatusLine().getStatusCode() == 200) {
+				result = EntityUtils.toString(httpResponse.getEntity(), encode);
+				Log.e("HTTP", "result:" + result);
+			} else {
+				result = null;
+			}
+		} catch (UnsupportedEncodingException e) {
+			result = null;
+		} catch (ClientProtocolException e) {
+			result = null;
+		} catch (Exception e) {
+			result = null;
+		}
+		return result;
+	}
+
+	public String doPost(String url, String encode, MultipartEntity multipartEntity){
+		String result = null;
+		HttpResponse httpResponse = null;
+		HttpClient httpclient= new DefaultHttpClient();
+		HttpPost post = new HttpPost(url);
+		try {
+			post.setEntity(multipartEntity);
+			httpResponse = httpclient.execute(post);
 			Log.e("HTTP", "CODE" + httpResponse.getStatusLine().getStatusCode());
 			if (httpResponse.getStatusLine().getStatusCode() == 200) {
 				result = EntityUtils.toString(httpResponse.getEntity(), encode);

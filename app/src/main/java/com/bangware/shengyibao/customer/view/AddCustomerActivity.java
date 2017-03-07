@@ -7,27 +7,16 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.AlertDialog.Builder;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -36,19 +25,18 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.StrictMode;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -72,10 +60,10 @@ import com.bangware.shengyibao.activity.ProvinceCityAreaActivity;
 import com.bangware.shengyibao.activity.R;
 import com.bangware.shengyibao.config.Constants_Camera;
 import com.bangware.shengyibao.config.Model;
-import com.bangware.shengyibao.customer.CustomerUtils;
-import com.bangware.shengyibao.customer.HttpUtils;
 import com.bangware.shengyibao.customer.adapter.CaremaAdapter;
-import com.bangware.shengyibao.customer.model.entity.CustomerShopType;
+import com.bangware.shengyibao.customer.shoptypeflowlayout.view.FlowLayoutActivity;
+import com.bangware.shengyibao.net.ThreadPoolUtils;
+import com.bangware.shengyibao.thread.HttpPostThread;
 import com.bangware.shengyibao.user.model.entity.User;
 import com.bangware.shengyibao.utils.AppContext;
 import com.bangware.shengyibao.utils.CommonUtil;
@@ -107,7 +95,7 @@ public class AddCustomerActivity extends BaseActivity {
 			cellphone_et,contact_et,mobile_two_et,detailAddr_et,provice_edit,
 						city_edit,district_edit,street_edit,kind_ids_et;
 	private TextView type_et,add_saler_area,add_saler_area_id,add_regional_area;
-	private RelativeLayout relative_AddsalerArea,relative_AddRegionalArea;
+	private RelativeLayout relative_AddsalerArea,relative_AddRegionalArea,choiceShop_rllayout;
 	//对复选框操作
 	private final static int DIALOG=1;
     boolean[] flags;//初始复选情况
@@ -123,10 +111,6 @@ public class AddCustomerActivity extends BaseActivity {
 	private User user;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
-		StrictMode.setThreadPolicy(policy);
-		
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);//去除标题
 		setContentView(R.layout.activity_addcustomer);
@@ -151,104 +135,9 @@ public class AddCustomerActivity extends BaseActivity {
         mLocClient.setLocOption(option);
         mLocClient.start();//	调用此方法开始定位
 	}
-	
-	//店面类型数据请求
-	public String[][] getshopType(){
-		String url_path = "";
-        String jsonString = "";
-        
-        //请求服务端数据接口
-        url_path = Model.CUSTOMER_TYPE_URL+"&token="+user.getLogin_token();
-        jsonString = HttpUtils.getJsonContent(url_path, "utf-8");
-		
-        String[][] kind = new String[2][];
-        
-        String[] kindList = null;
-        String[] kindNumber = null;
-		try {
-			//店面类型
-			List<CustomerShopType> cusShopType = CustomerUtils.getShopType("1", jsonString);
-			//店面位置
-			List<CustomerShopType> cusShopType2 = CustomerUtils.getShopType("2", jsonString);
-			
-			int index = cusShopType.size();
-	        int index2 = cusShopType2.size();
-	        
-			kindList = new String[index+index2];
-		    kindNumber = new String[index+index2];
-			flags = new boolean[index+index2];
-			
-			for(int i=0;i<index;i++){ 
-				kindList[i] = cusShopType.get(i).getName();
-				kindNumber[i] = String.valueOf(cusShopType.get(i).getId());
-				flags[i] = false;
-			}
-			for(int i=0;i<index2;i++){ 
-				kindList[index+i] = cusShopType2.get(i).getName();
-				kindNumber[index+i] = String.valueOf(cusShopType2.get(i).getId());
-				flags[index+i] = false;
-			}
-			
-		} catch (JSONException e) {
-			Toast.makeText(AddCustomerActivity.this, "请求出错！", Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		}
-		
-		kind[0] = kindList;
-		kind[1] = kindNumber;
-		return kind;
-		
-}
-	
-	/**
-     * 创建复选框对话框
-     */
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        Dialog dialog=null;
-        switch (id) {
-        case DIALOG:
-            Builder builder=new android.app.AlertDialog.Builder(this);
-            //设置对话框的图标
-//            builder.setIcon(R.drawable.title_bar);
-            //设置对话框的标题
-        	builder.setTitle("请选择店面类型");
-            final String[][] item = getshopType();
-             
-            builder.setMultiChoiceItems(item[0], flags, new DialogInterface.OnMultiChoiceClickListener(){
-            	List<String> list = null;
-            	public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-            		list = new ArrayList<String>();
-                    flags[which]=isChecked;
-                    String result = "";
-                    for (int i = 0; i < flags.length; i++) {
-                        if(flags[i]){
-                            result=result+item[0][i]+" ";
-                            list.add(item[1][i]);
-                        }
-                    }
-                    type_et.setText(result.substring(0, result.length()));
-                    kind_ids_et.setText(list.toString());
-                }
-            	
-            });
-            
-            //添加一个确定按钮
-            builder.setPositiveButton("确 定 ", new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int which) {
-                    
-                }
-            });
-            //创建一个复选框对话框
-            dialog=builder.create();
-            break;
-        }
-        return dialog;
-    }
-	
+
 	//初始化控件
 	private void init() {
-		// TODO Auto-generated method stub
 		caremaView = (GridView)findViewById(R.id.caremaView);
 		customer_add_back = (ImageView) findViewById(R.id.customer_add_back);
 		upload_image = (ImageView) findViewById(R.id.upload_img);
@@ -271,6 +160,7 @@ public class AddCustomerActivity extends BaseActivity {
 		kind_ids_et = (EditText) findViewById(R.id.kind_ids_et);
 		relative_AddsalerArea = (RelativeLayout) findViewById(R.id.relative_AddsalerArea);
 		relative_AddRegionalArea = (RelativeLayout) findViewById(R.id.relative_AddRegionalArea);
+		choiceShop_rllayout = (RelativeLayout) findViewById(R.id.choice_shop_rllayout);
 		add_saler_area = (TextView) findViewById(R.id.add_saler_area);
 		add_saler_area_id = (TextView) findViewById(R.id.add_saler_area_id);
 		add_regional_area = (TextView) findViewById(R.id.add_regional_area);
@@ -356,6 +246,15 @@ public class AddCustomerActivity extends BaseActivity {
 			String district = data.getStringExtra("district");
 			district_edit.setText(district);
 		}
+		//店面类型及位置回传值
+		if(requestCode == 1200 && resultCode == 1201)
+		{
+			String value = data.getStringExtra("myValue");
+			type_et.setText(value);
+
+			String kind_id = data.getStringExtra("myKindId");
+			kind_ids_et.setText(kind_id);
+		}
 	}
 	
 	@Override
@@ -374,6 +273,7 @@ public class AddCustomerActivity extends BaseActivity {
 		type_et.setOnClickListener(clickLinstener);
 		relative_AddsalerArea.setOnClickListener(clickLinstener);
 		relative_AddRegionalArea.setOnClickListener(clickLinstener);
+		choiceShop_rllayout.setOnClickListener(clickLinstener);
 	}
 	
 		
@@ -411,8 +311,9 @@ public class AddCustomerActivity extends BaseActivity {
 				}
 			}
 			//显示弹出复选框
-			if(v.getId() == R.id.type_et) {
-				showDialog(DIALOG);
+			if(v.getId() == R.id.choice_shop_rllayout) {
+				Intent intent = new Intent(AddCustomerActivity.this,FlowLayoutActivity.class);
+				startActivityForResult(intent, 1200);
 			}
 			//提交
 			if(v.getId() == R.id.btn_sub){
@@ -458,7 +359,6 @@ public class AddCustomerActivity extends BaseActivity {
 	}
 	
 	//提交数据、图片到server端的方法
-	@SuppressWarnings("unused")
 	private boolean uploadFile(){
 		String cus_store = store_name.getText().toString().trim();
 		String customer_cell_phone = cellphone_et.getText().toString().trim();
@@ -480,10 +380,7 @@ public class AddCustomerActivity extends BaseActivity {
 		//提交数据到后台的接口
 		String actionUrl = Model.CUSTOMER_ADD_URL+"&token="+ user.getLogin_token();
 		try {	
-			HttpClient httpclient= new DefaultHttpClient();  
-		    HttpPost httpPost= new HttpPost(actionUrl);  
-
-		    MultipartEntity mulentity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE,null,Charset.forName("UTF-8"));  
+		    MultipartEntity mulentity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE,null,Charset.forName("UTF-8"));
 		    int index = (listPhotoNames==null)? 0:listPhotoNames.size();
 //		    if(index > 0){
 		    	for(int i = 0;i <index; i++){
@@ -568,52 +465,60 @@ public class AddCustomerActivity extends BaseActivity {
 		    mulentity.addPart("employee_id", new StringBody(AppContext.getInstance().getUser().getEmployee_id()));
 		    mulentity.addPart("organization_id", new StringBody(AppContext.getInstance().getUser().getOrg_id()));
 		    mulentity.addPart("user_id",new StringBody(AppContext.getInstance().getUser().getUser_id()));
-	        httpPost.setEntity(mulentity);  
-	        System.out.println("executing request " + httpPost.getRequestLine());
-	        
-	        HttpResponse response;
-			response = httpclient.execute(httpPost);
-	        if(response.getStatusLine().getStatusCode()==HttpStatus.SC_OK){
-	        	
-	        	String strResult = EntityUtils.toString(response.getEntity());
-				JSONObject objresult = new JSONObject(strResult);
-				if (objresult != null){
-					switch (objresult.getInt("result")){
-						case 0:
-							showToast(objresult.getString("msg"));
-							Intent intent = new Intent(AddCustomerActivity.this, CustomerActivity.class);
-							startActivity(intent);
-							//清空表单内容
-							store_name.setText("");
-							detailAddr_et.setText("");
-							add_saler_area.setText("");
-							kind_ids_et.setText("");
-							link_man.setText("");
-							mobile_et.setText("");
-							contact_et.setText("");
-							mobile_two_et.setText("");
-							break;
-						case 1:
-							showToast(objresult.getString("msg"));
-							break;
-						case 2:
-							showToast(objresult.getString("msg"));
-							break;
-					}
-				}else {
-					showToast("返回内容为空！");
-				}
-		    }else{
-	        	loadingdialog.dismiss();
-	        	showToast("请求失败");
-	        }
+
+			ThreadPoolUtils.execute(new HttpPostThread(handler,actionUrl,"utf-8",mulentity));
 		}catch (Exception e) {
-			// TODO Auto-generated catch block
-			showToast("请求出错！");
 			e.printStackTrace();
 		}
 		return true;
 	}
+
+	Handler handler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			if (msg.what == 400){
+				showToast("服务器地址错误");
+			}
+			if (msg.what == 100){
+				showToast("网络传输失败");
+			}
+			if (msg.what == 200){
+				String result = (String) msg.obj;
+				if (result != null){
+					JSONObject response = null;
+					try {
+						response = new JSONObject(result);
+						int status = response.getInt("result");
+						if (response != null){
+							if (status == 0){
+								showToast(response.getString("msg"));
+								Intent intent = new Intent(AddCustomerActivity.this, CustomerActivity.class);
+								startActivity(intent);
+								finish();
+								//清空表单内容
+								store_name.setText("");
+								detailAddr_et.setText("");
+								add_saler_area.setText("");
+								kind_ids_et.setText("");
+								link_man.setText("");
+								mobile_et.setText("");
+								contact_et.setText("");
+								mobile_two_et.setText("");
+							}else{
+								showToast("服务器异常，请稍后再试！");
+							}
+						}
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			}else{
+				showToast("服务器连接失败！");
+			}
+		}
+	};
+
 	 /*
      * 验证号码 手机号 固话
      * 

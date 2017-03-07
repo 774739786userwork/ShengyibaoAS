@@ -10,6 +10,7 @@ import com.bangware.shengyibao.customer.model.entity.CustomerPurchase;
 import com.bangware.shengyibao.customer.model.entity.CustomerShopType;
 import com.bangware.shengyibao.customer.model.entity.DistanceType;
 import com.bangware.shengyibao.customer.model.entity.RegionalArea;
+import com.bangware.shengyibao.customer.shoptypeflowlayout.flowlayout.Flow;
 import com.bangware.shengyibao.manager.shoptype.helper.ChildData;
 import com.bangware.shengyibao.manager.shoptype.helper.GroupData;
 
@@ -306,6 +307,35 @@ public class CustomerUtils {
     	return contact_list;
     	
     }
+
+	/**
+	 * 客户店面类型
+	 * @throws JSONException ,String jsonString
+	 */
+	public static List<Flow> getShopTypeFlow(String jsonString){
+		List<Flow> datalist = new ArrayList<Flow>();
+		try {
+			JSONObject jsonObject = new JSONObject(jsonString);
+			JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+			Flow flow = null;
+			for (int i=0;i<jsonArray.length();i++) {
+				JSONObject groupObj = jsonArray.getJSONObject(i);
+
+				JSONArray typeArray = groupObj.getJSONArray("kind_list");
+				for (int j=0;j<typeArray.length();j++) {
+					JSONObject typeObj = typeArray.getJSONObject(j);
+					flow = new Flow();
+					flow.setFlowId(typeObj.getString("id"));
+					flow.setFlowName(typeObj.getString("name"));
+					datalist.add(flow);
+				}
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return datalist;
+	}
     
     /**
      * 客户店面类型
@@ -358,6 +388,4 @@ public class CustomerUtils {
     	}
 		return shoptypeList;
     }
-    
-    
 }

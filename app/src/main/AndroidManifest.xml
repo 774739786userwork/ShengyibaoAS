@@ -277,8 +277,10 @@
             android:name="com.bangware.shengyibao.customer.view.CustomerSalerAreaActivity"
             android:screenOrientation="portrait" />
 
-        <!-- 客户编辑测试页面 -->
-
+        <!-- 店面类型及位置选择 -->
+        <activity
+            android:name="com.bangware.shengyibao.customer.shoptypeflowlayout.view.FlowLayoutActivity"
+            android:screenOrientation="portrait" />
 
         <!-- 客户添加 -->
         <activity

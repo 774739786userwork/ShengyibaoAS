@@ -486,7 +486,8 @@
         <activity android:name=".HtmlWebActivity" />
         <activity android:name="com.bangware.shengyibao.main.fragment.purchasefragment.PurchaseReportActivity" />
         <activity android:name="com.bangware.shengyibao.main.fragment.storemanager.StoreReportActivity" />
-        <activity android:name="com.bangware.shengyibao.main.fragment.salerreportmanager.SalerReportActivity"></activity>
+        <activity android:name="com.bangware.shengyibao.main.fragment.salerreportmanager.SalerReportActivity" />
+        <activity android:name="com.bangware.shengyibao.main.fragment.fundmanager.FundReportActivity"></activity>
     </application>
 
 </manifest>

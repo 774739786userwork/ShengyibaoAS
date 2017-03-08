@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.bangware.shengyibao.activity.R;
+import com.bangware.shengyibao.main.fragment.fundmanager.FundReportActivity;
 import com.bangware.shengyibao.main.fragment.purchasefragment.PurchaseReportActivity;
 import com.bangware.shengyibao.main.fragment.salerreportmanager.SalerReportActivity;
 import com.bangware.shengyibao.main.fragment.storemanager.StoreReportActivity;
@@ -72,8 +73,8 @@ public class ReportFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case R.id.fund_report_rel:
-                    /*intent = new Intent(getActivity(), SaleAccountListActivity.class);
-                    startActivity(intent);*/
+                    intent = new Intent(getActivity(), FundReportActivity.class);
+                    startActivity(intent);
                     break;
             }
         }

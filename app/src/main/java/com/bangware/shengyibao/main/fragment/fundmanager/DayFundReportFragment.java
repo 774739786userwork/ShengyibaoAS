@@ -7,8 +7,10 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.bangware.shengyibao.activity.R;
+import com.bangware.shengyibao.main.fragment.fundmanager.entity.FunkBean;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
@@ -23,6 +25,9 @@ import java.util.ArrayList;
 
 public class DayFundReportFragment extends Fragment{
     private PieChart mPieChart;
+    private ListView lv;
+    private ArrayList<FunkBean> list = null;
+    private FundReportAdapter adapter = null;
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -48,6 +53,33 @@ public class DayFundReportFragment extends Fragment{
 
     private void findViews(){
         mPieChart = (PieChart) getView().findViewById(R.id.dayfunkpieChart);
+        lv = (ListView) getView().findViewById(R.id.fundListview);
+
+        list = getData();
+        adapter = new FundReportAdapter(getContext(),list);
+        lv.setAdapter(adapter);
+    }
+
+    private ArrayList<FunkBean> getData() {
+        list = new ArrayList<FunkBean>();
+        FunkBean funkBean = new FunkBean();
+        funkBean.setImg(R.drawable.btn_logout_normal);
+        funkBean.setPayName("资金");
+        funkBean.setPayMoney("666.00万");
+        list.add(funkBean);
+
+        FunkBean salerdepartment = new FunkBean();
+        salerdepartment.setImg(R.drawable.btn_logout_pressed);
+        salerdepartment.setPayName("销售部");
+        salerdepartment.setPayMoney("6666.00万");
+        list.add(salerdepartment);
+
+        FunkBean financialdepartment = new FunkBean();
+        financialdepartment.setImg(R.drawable.btn_logout_normal);
+        financialdepartment.setPayName("财务部");
+        financialdepartment.setPayMoney("5693.20万");
+        list.add(financialdepartment);
+        return list;
     }
 
     /**饼图数据*/

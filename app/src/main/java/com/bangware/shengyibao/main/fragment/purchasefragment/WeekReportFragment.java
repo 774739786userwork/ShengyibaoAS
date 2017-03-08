@@ -141,7 +141,7 @@ public class WeekReportFragment extends Fragment {
         //y轴的集合
         PieDataSet pieDataSet = new PieDataSet(yValues,"");
         pieDataSet.setSliceSpace(0f); //设置个饼状图之间的距离
-
+        pieDataSet.setValueTextSize(10f);
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
         // 饼图颜色

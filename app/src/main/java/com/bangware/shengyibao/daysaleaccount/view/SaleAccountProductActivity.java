@@ -25,7 +25,7 @@ import java.util.Map;
 public class SaleAccountProductActivity extends BaseActivity implements SaleProductView{
     private ImageView backimage;
     private TextView date_producttext;
-    private TextView saletotalsum_textview,unpaidmoney_textview,rounding_textview,small_change_textview;
+    private TextView saletotalsum_textview,unpaidmoney_textview,small_change_textview;
     private ListView daySaleProductListView;
 
     private List<SaleAccountProductBean> productList = new ArrayList<SaleAccountProductBean>();
@@ -50,7 +50,6 @@ public class SaleAccountProductActivity extends BaseActivity implements SaleProd
         date_producttext = (TextView) findViewById(R.id.date_producttext);
         saletotalsum_textview = (TextView) findViewById(R.id.saletotalsum_textview);
         unpaidmoney_textview = (TextView) findViewById(R.id.unpaidmoney_textview);
-        rounding_textview = (TextView) findViewById(R.id.rounding_textview);
         small_change_textview = (TextView) findViewById(R.id.small_change_textview);
         daySaleProductListView = (ListView) findViewById(R.id.daySaleProductListView);
 
@@ -83,7 +82,6 @@ public class SaleAccountProductActivity extends BaseActivity implements SaleProd
 
             saletotalsum_textview.setText("¥"+String.valueOf(productList.get(0).getTotalmoney()));
             unpaidmoney_textview.setText("¥"+String.valueOf(productList.get(0).getUnpaidmoney()));
-            rounding_textview.setText("¥"+String.valueOf(productList.get(0).getRounding()));
             small_change_textview.setText("¥"+String.valueOf(productList.get(0).getSmallchange()));
 
             productAdapter.notifyDataSetChanged();

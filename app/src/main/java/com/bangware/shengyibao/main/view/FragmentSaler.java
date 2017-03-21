@@ -30,6 +30,7 @@ import com.bangware.shengyibao.returngood.view.ChoiceContactActivity;
 import com.bangware.shengyibao.returngood.view.ReturngoodQueryActivity;
 import com.bangware.shengyibao.user.model.entity.User;
 import com.bangware.shengyibao.utils.AppContext;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -221,7 +222,7 @@ public class FragmentSaler extends Fragment implements MainView
 					break;
 				case 6:
 					//卸货单
-					/*intent=new Intent(ctx, ChoiceContactActivity.class);
+					/*intent=new Intent(ctx, HelloActivity.class);
 					ctx.startActivity(intent);*/
 					break;
 				default:

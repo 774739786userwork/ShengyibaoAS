@@ -58,7 +58,6 @@ public class SaleAccountJsonUtils {
                 productBean = new SaleAccountProductBean();
                 productBean.setTotalmoney(jsonObject.getDouble("total_sum"));
                 productBean.setUnpaidmoney(jsonObject.getDouble("unpaid_total_sum"));
-                productBean.setRounding(jsonObject.getDouble("rounding"));
                 productBean.setSmallchange(jsonObject.getDouble("small_change"));
                 productBean.setSalesVolume(saleobject.getInt("sale_quantity"));
                 productBean.setGiftsVolume(saleobject.getInt("gifts_quantity"));
